@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+.gitignore
+.vscode
 
 # Object files
 *.o
