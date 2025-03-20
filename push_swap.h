@@ -16,6 +16,7 @@
 # include "ft_libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct t_stack
 {
@@ -45,7 +46,7 @@ int		get_min_index(t_stack *stack);
 int		is_sorted(t_stack *stack_a);
 int		check_dup(t_stack *stack, int num);
 void	free_array(char **array);
-t_stack	*new_node(int num);
+t_stack	*new_node(long num);
 void	free_node(t_stack **node);
 void	ft_add_back(t_stack **stack_a, t_stack *new);
 t_stack	*check_createlist(char **argv);

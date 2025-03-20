@@ -25,10 +25,12 @@ void	free_array(char **array)
 	free(array);
 }
 
-t_stack	*new_node(int num)
+t_stack	*new_node(long num)
 {
 	t_stack	*node;
 
+	if (num > INT_MAX)
+		return (NULL);
 	node = (t_stack *) malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
@@ -77,9 +79,7 @@ t_stack	*check_createlist(char **argv)
 	t_stack	*new;
 
 	stack_a = NULL;
-	i = -1;
-	if (argv[0][0] == '.')
-		i = 0;
+	i = 0;
 	while (argv[++i])
 	{
 		j = -1;

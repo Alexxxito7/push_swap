@@ -39,21 +39,21 @@ void	sort_three(t_stack **stack_a)
 	mid = (*stack_a)->next->value;
 	bottom = (*stack_a)->next->next->value;
 	if (top > mid && mid < bottom && top < bottom)
-		sa(stack_a, 1); // Case: 2 1 3 → 1 2 3
+		sa(stack_a, 1);
 	else if (top > mid && mid > bottom)
 	{
-		sa(stack_a, 1); // Case: 3 2 1 → 2 3 1
-		rra(stack_a, 1); // → 1 2 3
+		sa(stack_a, 1);
+		rra(stack_a, 1);
 	}
 	else if (top > mid && mid < bottom && top > bottom)
-		ra(stack_a, 1); // Case: 3 1 2 → 1 2 3
+		ra(stack_a, 1);
 	else if (top < mid && mid > bottom && top < bottom)
 	{
-		sa(stack_a, 1); // Case: 1 3 2 → 3 1 2
-		ra(stack_a, 1); // → 1 2 3
+		sa(stack_a, 1);
+		ra(stack_a, 1);
 	}
 	else if (top < mid && mid > bottom && top > bottom)
-		rra(stack_a, 1); // Case: 2 3 1 → 1 2 3
+		rra(stack_a, 1);
 }
 
 void	sort_fourfive(t_stack **stack_a, t_stack **stack_b)
@@ -93,7 +93,7 @@ void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 		n = size / 2;
 	while (get_stack_size(*stack_a) > 1 && !is_sorted(*stack_a))
 	{
-		to_stack_b(stack_a, stack_b, find_nth_smallest(*stack_a, size), n);
+		to_stack_b(stack_a, stack_b, find_nth_smallest(*stack_a, n), n);
 	}
 	to_stack_a(stack_a, stack_b);
 	pa(stack_a, stack_b);
