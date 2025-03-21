@@ -36,6 +36,5 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	size = get_stack_size(stack_a);
 	quicksort_stack(&stack_a, &stack_b, size);
-	free_node(&stack_a);
-	free_node(&stack_b);
+	return (free_node(&stack_a), free_node(&stack_b), 1);
 }

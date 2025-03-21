@@ -22,7 +22,7 @@ void	quicksort_stack(t_stack **stack_a, t_stack **stack_b, int size)
 		sort_bigger(stack_a, stack_b);
 }
 
-void	to_stack_b(t_stack **stack_a, t_stack **stack_b, double median, int n)
+void	to_stack_b(t_stack **stack_a, t_stack **stack_b, int median, int n)
 {
 	while (n && get_stack_size(*stack_a) > 1)
 	{
