@@ -20,21 +20,21 @@ int	main(int argc, char **argv)
 	int		size;
 
 	if (argc < 2)
-		return (printf("Error\n"));
+		return (write(1, "Error\n", 6));
 	if (argc == 2)
 	{
 		splitarr = ft_split(argv[1], ' ');
 		if (!splitarr)
-			return (printf("Error\n"));
-		stack_a = check_createlist(splitarr);
+			return (write(1, "Error\n", 6));
+		stack_a = check_createlist(splitarr, 0);
 		free_array(splitarr);
 	}
 	else
-		stack_a = check_createlist(argv);
+		stack_a = check_createlist(argv, 1);
 	if (!stack_a)
-		return (printf("Error\n"));
+		return (write(1, "Error\n", 6));
 	stack_b = NULL;
 	size = get_stack_size(stack_a);
 	quicksort_stack(&stack_a, &stack_b, size);
-	return (free_node(&stack_a), free_node(&stack_b), 1);
+	return (free_node(&stack_a), free_node(&stack_b), 0);
 }

@@ -71,7 +71,7 @@ void	ft_add_back(t_stack **stack_a, t_stack *new)
 	pnt->next = new;
 }
 
-t_stack	*check_createlist(char **argv)
+t_stack	*check_createlist(char **argv, int to_skip)
 {
 	int		i;
 	int		j;
@@ -79,7 +79,9 @@ t_stack	*check_createlist(char **argv)
 	t_stack	*new;
 
 	stack_a = NULL;
-	i = 0;
+	i = -1;
+	if (to_skip == 1)
+		i = 0;
 	while (argv[++i])
 	{
 		j = -1;
@@ -91,7 +93,7 @@ t_stack	*check_createlist(char **argv)
 		}
 		new = new_node(ft_atoi(argv[i]));
 		if (!new || check_dup(stack_a, ft_atoi(argv[i])))
-			return (free_node(&stack_a), NULL);
+			return (free_node(&stack_a), free(new), NULL);
 		ft_add_back(&stack_a, new);
 	}
 	return (stack_a);

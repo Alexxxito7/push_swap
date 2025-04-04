@@ -34,7 +34,7 @@ void	checkswap(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	checkrotate(t_stack **stack_a, t_stack **stack_b, int median)
+void	checkrotate(t_stack **stack_a, t_stack **stack_b, double median)
 {
 	if (get_stack_size(*stack_a) > 2 && get_stack_size(*stack_b) > 2)
 	{
@@ -68,7 +68,7 @@ int	rank(int a, int b)
 	result = a - b;
 	if (result < 0)
 		result *= -1;
-	return (result);
+	return (result - 1);
 }
 
 int	last_node(t_stack *stack)

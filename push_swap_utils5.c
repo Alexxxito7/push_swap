@@ -20,9 +20,13 @@ void	sort_small_size(t_stack **stack_a, t_stack **stack_b, int size)
 			sa(stack_a, 1);
 	}
 	else if (size == 3)
+	{
 		sort_three(stack_a);
+	}
 	else if (size == 4 || size == 5)
+	{
 		sort_fourfive(stack_a, stack_b);
+	}
 }
 
 void	sort_three(t_stack **stack_a)
@@ -78,6 +82,7 @@ void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 	int	size;
 	int	n;
 
+	n = 2;
 	size = get_stack_size(*stack_a);
 	n = size / 5;
 	if (size > 250 && size <= 500)
